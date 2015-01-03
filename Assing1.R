@@ -35,6 +35,9 @@ corr <- function(directory, threshold = 0) {
   case<-data.frame(a)
   greater<-threshold<case[,2]
   id_greater_than_threshold<-which(greater=="TRUE",arr.ind = TRUE)
+  if(length(id_greater_than_threshold)==0){
+    return (0)
+  }
     correlation<-c()
     for(i in id_greater_than_threshold){
       data<-final_data[final_data$id==i,]
